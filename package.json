@@ -1,0 +1,24 @@
+{
+  "name": "2700-ether-page",
+  "version": "1.0.0",
+  "description": "Describe 2700-ether-page here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-web-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-web-app --reload",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "get-pixels": "^3.3.2",
+    "web3": "^1.2.11"
+  },
+  "devDependencies": {
+    "nwb": "0.25.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}
