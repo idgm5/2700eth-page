@@ -55,19 +55,19 @@ Tools used on this project
 - Twitter: [@idgm5](https://twitter.com/idgm5)
 - Linked-in: [Isaac Gonzalez](https://www.linkedin.com/in/isaacmunguia)
 
+## Acknowledgments
+
++ [Newline.co - Learn to build this Dapp here](https://www.newline.co/courses/million-ether-homepage).
+
 ## Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues](https://github.com/idgm5/catalogue/issues).
+Feel free to check the [issues](https://github.com/idgm5/2700eth-page/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-+ [Newline.co - Learn to build this Dapp here](https://www.newline.co/courses/million-ether-homepage).
 
 ## License
 
