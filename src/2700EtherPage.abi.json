@@ -19,7 +19,7 @@
 		],
 		"name": "colorPixel",
 		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -35,6 +35,18 @@
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "y",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "soldPrice",
 				"type": "uint256"
 			},
 			{
@@ -63,8 +75,18 @@
 		"name": "pixels",
 		"outputs": [
 			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "soldPrice",
+				"type": "uint256"
+			},
+			{
 				"internalType": "bytes3",
-				"name": "",
+				"name": "color",
 				"type": "bytes3"
 			}
 		],
