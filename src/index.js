@@ -13,25 +13,6 @@ const contractAddr = '0x5aE3a2EC65E8d40748cF92052CACfc99B433Bb74';
 
 let mep = new web3.eth.Contract(abi, contractAddr);
 
-mep.events.PixelChanged(
-  {
-    fromBlock: 0
-  },
-  function(error, event) {
-    console.log('new event : ', event);
-  }
-);
-
-mep.getPastEvents(
-  'PixelChanged',
-  {
-    fromBlock: 0
-  },
-  function(error, events) {
-    console.log('event : ', events);
-  }
-);
-
 function draw() {
   var canvas = document.getElementById('canvas');
   if (canvas.getContext) {
@@ -45,14 +26,61 @@ function draw() {
     );
     let data = imageData.data;
 
-    for (var i = 0; i < data.length; i += 4) {
-      let rnd = () => parseInt(Math.random() * 1000 % 255);
-      data[i] = rnd(); // red
-      data[i + 1] = rnd(); // green
-      data[i + 2] = rnd(); // blue
-      data[i + 3] = 255;
+    function writePixelWithEvent(event) {
+      let { x, y, color } = event.returnValues;
+      writePixel(
+        parseInt(x),
+        parseInt(y),
+        parseColor(color)
+      );
     }
-    ctx.putImageData(imageData, 0, 0);
+
+    function parseColor(rawColor) {
+      let rgb = [];
+      for (let i = 0; i < rawColor.length; i += 2) {
+        let chunk = rawColor.substring(i, i + 2);
+        if (chunk !== '0x') {
+          rgb.push(parseInt(chunk, 16).toString(10));
+        }
+      }
+      return rgb;
+    }
+
+    function writePixel(x, y, color) {
+      console.log(x, y, color);
+      let data = imageData.data;
+      let columns = canvas.width;
+      let rows = canvas.height;
+
+      let i = (y * columns + x) * 4;
+
+      data[i] = color[0];
+      data[i + 1] = color[1];
+      data[i + 2] = color[2];
+      data[i + 3] = 255; // alpha
+      ctx.putImageData(imageData, 0, 0);
+    }
+
+    mep.events.PixelChanged(
+      {
+        fromBlock: 0
+      },
+      function(error, event) {
+        console.log('new event : ', event);
+        writePixelWithEvent(event);
+      }
+    );
+
+    mep.getPastEvents(
+      'PixelChanged',
+      {
+        fromBlock: 0
+      },
+      function(error, events) {
+        console.log('event : ', events);
+        events.map(e => writePixelWithEvent(e));
+      }
+    );
   }
 }
 
