@@ -67,7 +67,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-+ [Newline.co](https://www.newline.co/courses/million-ether-homepage).
++ [Newline.co - Learn to build this Dapp here](https://www.newline.co/courses/million-ether-homepage).
 
 ## License
 
