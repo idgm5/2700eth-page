@@ -9,7 +9,7 @@ web3.setProvider(
 );
 
 const abi = require('./2700EtherPage.abi.json');
-const contractAddr = '0xAd2d24ccC756de75508112e2a16e62a0F62e0EBd';
+const contractAddr = '0x3b3b48ae25Ac611518bb39bE293bE226Be0D0604';
 
 let mep = new web3.eth.Contract(abi, contractAddr);
 
